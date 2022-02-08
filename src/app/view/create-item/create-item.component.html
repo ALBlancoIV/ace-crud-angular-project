@@ -1,0 +1,15 @@
+<form [formGroup]="itemCreation" (ngSubmit)="onSubmit()" class="formControl">
+  <div class="form-group">
+    <label for="txtItem">Item </label>
+    <input id="txtItem" type="text" formControlName="item" required>
+  </div>
+  <div class="form-group">
+    <label for="txtRate">Rate </label>
+    <input id="txtRate" type="number" formControlName="rate" required>
+  </div>
+  <div class="form-group">
+    <label for="txtQuantity">Quantity </label>
+    <input id="txtQuantity" type="number" formControlName="quantity" required>
+  </div>
+  <button class="btn btn-primary" type="submit"> Create  </button>
+</form>
