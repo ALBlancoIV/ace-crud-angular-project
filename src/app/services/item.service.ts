@@ -1,6 +1,7 @@
 import { HttpRequestService } from './http-request.service';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, take } from 'rxjs';
+import { Item } from '../model/model';
 
 let tableData: PeriodicElement[] = [
   { id: '1', item: 'Hydrogen', rate: 1.0079, quantity: 1000 },
@@ -63,6 +64,10 @@ export class ItemService {
     this.httpRequestService.getRequest().subscribe((res) => {
       this.tableData = res as PeriodicElement[];
     });
+  }
+
+  getItem(id: string): Observable<Item[]> {
+    return this.httpRequestService.getRequest(id);
   }
 
   getListOfIds() {

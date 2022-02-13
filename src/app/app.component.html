@@ -9,10 +9,12 @@
     <app-update-item *ngIf="showUpdate"></app-update-item>
     <app-delete-item *ngIf="showDelete"></app-delete-item>
   </div>
-  <div class="container_table">
-    <app-table [dataSource]="tableData "></app-table>
+  <div class="container_table" #tableView>
+    <app-table [dataSource]="tableData"></app-table>
   </div>
   <div class="container_footer">
-    <h3> Total amount: {{ amountSum }} </h3>
+    <span> Total amount: {{ amountSum }} </span>
+    <button class="btn btn-secondary" (click)="printTable()"> Print Table</button>
   </div>
+
 </div>

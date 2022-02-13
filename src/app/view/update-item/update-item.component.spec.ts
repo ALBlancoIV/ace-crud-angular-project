@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpRequestService } from 'src/app/services/http-request.service';
+import { ItemService } from 'src/app/services/item.service';
 
 import { UpdateItemComponent } from './update-item.component';
 
@@ -8,7 +10,11 @@ describe('UpdateItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateItemComponent ]
+      declarations: [ UpdateItemComponent ],
+      providers: [{
+        ItemService,
+        HttpRequestService
+      }]
     })
     .compileComponents();
   });

@@ -1,8 +1,6 @@
-export class Item {
-  constructor(
-    id: string,
-    item: string,
-    rate: number,
-    quantity: number
-  ){}
+export interface Item {
+  id: string;
+  item: string;
+  rate: number;
+  quantity: number;
 }

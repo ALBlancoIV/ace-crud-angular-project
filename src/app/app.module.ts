@@ -15,7 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReportService } from './services/report-services.service';
 import { ItemService } from './services/item.service';
 import { TableComponent } from './view/table/table.component';
-import { TableRowComponent } from './view/table-row/table-row.component';
 import { CreateItemComponent } from './view/create-item/create-item.component';
 import { UpdateItemComponent } from './view/update-item/update-item.component';
 import { DeleteItemComponent } from './view/delete-item/delete-item.component';
@@ -25,7 +24,6 @@ import { MatSortModule } from '@angular/material/sort';
   declarations: [
     AppComponent,
     TableComponent,
-    TableRowComponent,
     CreateItemComponent,
     UpdateItemComponent,
     DeleteItemComponent,

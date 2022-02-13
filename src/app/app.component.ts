@@ -1,5 +1,7 @@
 import { ItemService } from './services/item.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ReportService } from './services/report-services.service';
+
 
 const FORM_STATUS = {
   CREATE: 'CREATE',
@@ -18,7 +20,14 @@ export class AppComponent implements OnInit {
   tableData: any;
   amountSum: any;
 
-  constructor(private itemService: ItemService) {}
+  @ViewChild('tableView') tableView!: ElementRef;
+
+  constructor(
+    private itemService: ItemService,
+    private reportService: ReportService,
+
+  ) {
+  }
 
   get showUpdate() {
     return this.formStatus === FORM_STATUS.UPDATE;
@@ -48,8 +57,12 @@ export class AppComponent implements OnInit {
   }
 
   calculateSum() {
-    this.itemService.amountSum.subscribe((res) => {
+    this.itemService.amountSum.subscribe((res: []) => {
       this.amountSum = res;
     });
+  }
+
+  printTable() {
+    this.reportService.printTable(this.tableData, this.tableView, this.amountSum);
   }
 }

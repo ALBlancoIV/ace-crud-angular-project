@@ -2,8 +2,10 @@
   <div class="form-group">
     <label for="txtId">Id </label>
     <select id="txtId" type="text" formControlName="id" required>
+      <option value="" disabled selected hidden>Please Choose...</option>
       <option *ngFor="let row of listOfIds" [value]="row.id"> {{ row.id }}</option>
     </select>
   </div>
   <button class="btn btn-primary"  type="submit"> Delete </button>
 </form>
+

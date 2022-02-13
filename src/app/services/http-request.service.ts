@@ -6,6 +6,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take, Observable, catchError } from 'rxjs';
+import { Item } from '../model/model';
 
 const itemUrls = {
   base: 'http://localhost:5000/item',
@@ -21,16 +22,16 @@ export class HttpRequestService {
   constructor(private httpClient: HttpClient) {}
 
   // get
-  getRequest(id = null) {
+  getRequest(id?: string): Observable<Item[]> {
     let url = itemUrls.base;
     if (id != null) {
       url = itemUrls.itemById.replace('{1}', id);
     }
 
-    return this.httpClient.get(url);
+    return this.httpClient.get(url) as Observable<Item[]>;
   }
 
-  getListOfId(id = null) {
+  getListOfId() {
     let url = itemUrls.listOfIds;
     return this.httpClient.get(url);
   }
